@@ -1,5 +1,5 @@
 // urano.d.ts
-// Definiciones globales de TypeScript para el desarrollo de módulos en Urano
+// Definiciones globales unificadas de TypeScript para el ecosistema de plugins de Urano
 
 declare module '@core/PluginBase' {
     export class PluginBase {
@@ -8,6 +8,14 @@ declare module '@core/PluginBase' {
         constructor(config: any);
         executeAction(action: string, payload: any): Promise<any>;
     }
+}
+
+declare module '@core/Security/Vault' {
+    export class Vault { static getSecret(module: string, key: string): string; }
+}
+
+declare module '@core/Router' {
+    export const Router: any;
 }
 
 declare module '@core/EnginePluginBase' {
